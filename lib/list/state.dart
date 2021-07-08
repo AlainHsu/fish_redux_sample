@@ -3,7 +3,7 @@ import 'package:redux_sample/list/adapter.dart';
 import 'package:redux_sample/list/item/state.dart';
 
 class ListState extends MutableSource implements Cloneable<ListState> {
-  List<ItemState> items;
+  List<Object> items;
 
   @override
   ListState clone() {
@@ -14,7 +14,13 @@ class ListState extends MutableSource implements Cloneable<ListState> {
   Object getItemData(int index) => items[index];
 
   @override
-  String getItemType(int index) => ListItemAdapter.item_style;
+  String getItemType(int index) {
+    if (items[index] is ItemState) {
+      return ListItemAdapter.item_style;
+    } else {
+      return ListItemAdapter.item_style_2;
+    }
+  }
 
   @override
   int get itemCount => items.length;

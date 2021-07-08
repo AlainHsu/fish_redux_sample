@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:fish_redux/fish_redux.dart';
+import 'package:redux_sample/list/item2/state.dart';
 
 import 'action.dart';
 import 'bean/item_detail_bean.dart';
@@ -22,8 +23,12 @@ void _init(Action action, Context<ListState> ctx) async {
   List<Datas> itemDetails = itemDetailBean.data.datas;
 
   ///构建符合要求的列表数据源
-  List<ItemState> items = List.generate(itemDetails.length, (index) {
-    return ItemState(itemDetail: itemDetails[index]);
+  List<Object> items = List.generate(itemDetails.length, (index) {
+    if (index % 2 == 0) {
+      return ItemState(itemDetail: itemDetails[index]);
+    } else {
+      return Item2State(itemDetail: itemDetails[index]);
+    }
   });
 
   ///通知更新列表数据源

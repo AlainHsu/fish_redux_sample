@@ -9,6 +9,7 @@ import 'package:redux_sample/guide/page.dart';
 import 'package:redux_sample/second/page.dart';
 
 import 'list/page.dart';
+import 'list_edit/page.dart';
 
 Widget createApp() {
   return MaterialApp(
@@ -44,11 +45,15 @@ class RouteConfig {
   ///列表模块演示
   static const String listPage = 'page/list';
 
+  ///列表编辑演示
+  static const String listEditPage = 'page/list_edit';
+
   static final AbstractRoutes routes = PageRoutes(pages: {
     guidePage: GuidePage(),
     countPage: CounterPage(),
     firstPage: FirstPage(),
     secondPage: SecondPage(),
     listPage: ListPage(),
+    listEditPage: ListEditPage(),
   });
 }

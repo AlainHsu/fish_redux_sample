@@ -22,6 +22,9 @@ Widget buildView(GuideState state, Dispatch dispatch, ViewService viewService) {
           OutlinedButton(
               onPressed: () => dispatch(GuideActionCreator.toList()),
               child: Text('List')),
+          OutlinedButton(
+              onPressed: () => dispatch(GuideActionCreator.toEditList()),
+              child: Text('Edit List')),
         ],
       ),
     ),

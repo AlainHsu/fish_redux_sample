@@ -12,7 +12,10 @@ Widget buildView(ItemState state, Dispatch dispatch, ViewService viewService) {
         title: Text(state.title),
         trailing: Checkbox(
           value: state.itemStatus,
-          onChanged: (value) => dispatch(ItemActionCreator.onChange(state.id)),
+          onChanged: (value) {
+            dispatch(ItemActionCreator.clear());
+            dispatch(ItemActionCreator.onChange(state.id));
+          },
         ),
       ),
     ),

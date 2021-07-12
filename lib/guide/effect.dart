@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 
-import '../app.dart';
+import '../route_config.dart';
 import 'action.dart';
 import 'state.dart';
 

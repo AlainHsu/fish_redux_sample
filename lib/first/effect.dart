@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/cupertino.dart' hide Action;
-import 'package:redux_sample/app.dart';
+
+import '../route_config.dart';
 import 'action.dart';
 import 'state.dart';
 

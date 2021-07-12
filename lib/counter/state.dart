@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:fish_redux/fish_redux.dart';
 import 'package:redux_sample/store/store.dart';
 
@@ -10,11 +8,11 @@ class CounterState implements Cloneable<CounterState>, GlobalBaseState {
   CounterState clone() {
     return CounterState()
       ..count = count
-      ..themeColor = themeColor;
+      ..store = store;
   }
 
   @override
-  Color themeColor;
+  StoreModel store;
 }
 
 CounterState initState(Map<String, dynamic> args) {

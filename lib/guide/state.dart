@@ -1,16 +1,14 @@
-import 'dart:ui';
-
 import 'package:fish_redux/fish_redux.dart';
 import 'package:redux_sample/store/store.dart';
 
 class GuideState implements Cloneable<GuideState>, GlobalBaseState {
   @override
-  Color themeColor;
+  GuideState clone() {
+    return GuideState()..store = store;
+  }
 
   @override
-  GuideState clone() {
-    return GuideState()..themeColor = themeColor;
-  }
+  StoreModel store;
 }
 
 GuideState initState(Map<String, dynamic> args) {

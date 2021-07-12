@@ -10,7 +10,7 @@ Widget buildView(GuideState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
     appBar: AppBar(
       title: Text('Guide Page'),
-      backgroundColor: state.themeColor,
+      backgroundColor: state.store.themeColor,
     ),
     body: Center(
       child: Column(

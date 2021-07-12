@@ -1,12 +1,20 @@
-import 'package:fish_redux/fish_redux.dart';
+import 'dart:ui';
 
-class CounterState implements Cloneable<CounterState> {
+import 'package:fish_redux/fish_redux.dart';
+import 'package:redux_sample/store/store.dart';
+
+class CounterState implements Cloneable<CounterState>, GlobalBaseState {
   int count;
 
   @override
   CounterState clone() {
-    return CounterState()..count = count;
+    return CounterState()
+      ..count = count
+      ..themeColor = themeColor;
   }
+
+  @override
+  Color themeColor;
 }
 
 CounterState initState(Map<String, dynamic> args) {

@@ -1,10 +1,15 @@
-import 'package:fish_redux/fish_redux.dart';
+import 'dart:ui';
 
-class GuideState implements Cloneable<GuideState> {
+import 'package:fish_redux/fish_redux.dart';
+import 'package:redux_sample/store/store.dart';
+
+class GuideState implements Cloneable<GuideState>, GlobalBaseState {
+  @override
+  Color themeColor;
 
   @override
   GuideState clone() {
-    return GuideState();
+    return GuideState()..themeColor = themeColor;
   }
 }
 

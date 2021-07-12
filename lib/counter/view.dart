@@ -9,6 +9,7 @@ Widget buildView(
   return Scaffold(
     appBar: AppBar(
       title: Text('Counter Page'),
+      backgroundColor: state.themeColor,
     ),
     body: Center(
       child: Text('Count: ${state.count.toString()}'),

@@ -1,5 +1,9 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+import 'package:redux_sample/broadcast/action.dart';
 
 import '../route_config.dart';
 import 'action.dart';
@@ -12,6 +16,7 @@ Effect<GuideState> buildEffect() {
     GuideAction.toList: _toList,
     GuideAction.toEditList: _toEditList,
     GuideAction.toComp: _toComp,
+    GuideAction.toBroadcast: _toBroadcast,
   });
 }
 
@@ -33,4 +38,11 @@ void _toEditList(Action action, Context<GuideState> ctx) {
 
 void _toComp(Action action, Context<GuideState> ctx) {
   Navigator.of(ctx.context).pushNamed(RouteConfig.componentPage);
+}
+
+void _toBroadcast(Action action, Context<GuideState> ctx) {
+  Timer.periodic(Duration(seconds: 2), (timer) {
+    ctx.broadcast(BroadcastActionCreator.toNotify(
+        "Broadcast value: ${Random().nextInt(1000)}"));
+  });
 }

@@ -35,6 +35,9 @@ Widget buildView(GuideState state, Dispatch dispatch, ViewService viewService) {
           OutlinedButton(
               onPressed: () => dispatch(GuideActionCreator.toComp()),
               child: Text('Component')),
+          OutlinedButton(
+              onPressed: () => dispatch(GuideActionCreator.toBroadcast()),
+              child: Text('Broadcast')),
         ],
       ),
     ),

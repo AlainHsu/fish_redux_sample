@@ -10,7 +10,14 @@ Widget buildView(FirstState state, Dispatch dispatch, ViewService viewService) {
       title: Text('First Page'),
     ),
     body: Center(
-      child: Text(state.comingMsg),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(state.comingMsg),
+          Text(state.notifyMsg),
+        ],
+      ),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () => dispatch(FirstActionCreator.toSecond()),

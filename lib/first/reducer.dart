@@ -7,6 +7,7 @@ Reducer<FirstState> buildReducer() {
   return asReducer(
     <Object, Reducer<FirstState>>{
       FirstAction.onUpdateMessage: _onUpdateMessage,
+      FirstAction.onNotifyMessage: _onNotifyMessage,
     },
   );
 }
@@ -14,5 +15,11 @@ Reducer<FirstState> buildReducer() {
 FirstState _onUpdateMessage(FirstState state, Action action) {
   final FirstState newState = state.clone();
   newState..comingMsg = action.payload;
+  return newState;
+}
+
+FirstState _onNotifyMessage(FirstState state, Action action) {
+  final FirstState newState = state.clone();
+  newState..notifyMsg = action.payload;
   return newState;
 }

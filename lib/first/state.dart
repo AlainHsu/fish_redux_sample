@@ -5,12 +5,18 @@ class FirstState implements Cloneable<FirstState> {
 
   String comingMsg;
 
+  String notifyMsg;
+
   @override
   FirstState clone() {
-    return FirstState()..comingMsg = comingMsg;
+    return FirstState()
+      ..comingMsg = comingMsg
+      ..notifyMsg = notifyMsg;
   }
 }
 
 FirstState initState(Map<String, dynamic> args) {
-  return FirstState()..comingMsg = '暂无';
+  return FirstState()
+    ..comingMsg = '暂无'
+    ..notifyMsg = '暂无';
 }

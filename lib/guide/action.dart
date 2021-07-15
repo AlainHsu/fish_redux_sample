@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum GuideAction { toCount, toJump, toList, toEditList }
+enum GuideAction { toCount, toJump, toList, toEditList, toComp }
 
 class GuideActionCreator {
   static Action toCount() {
@@ -18,5 +18,9 @@ class GuideActionCreator {
 
   static Action toEditList() {
     return const Action(GuideAction.toEditList);
+  }
+
+  static Action toComp() {
+    return const Action(GuideAction.toComp);
   }
 }

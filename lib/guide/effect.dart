@@ -11,6 +11,7 @@ Effect<GuideState> buildEffect() {
     GuideAction.toJump: _toJump,
     GuideAction.toList: _toList,
     GuideAction.toEditList: _toEditList,
+    GuideAction.toComp: _toComp,
   });
 }
 
@@ -28,4 +29,8 @@ void _toList(Action action, Context<GuideState> ctx) {
 
 void _toEditList(Action action, Context<GuideState> ctx) {
   Navigator.of(ctx.context).pushNamed(RouteConfig.listEditPage);
+}
+
+void _toComp(Action action, Context<GuideState> ctx) {
+  Navigator.of(ctx.context).pushNamed(RouteConfig.componentPage);
 }

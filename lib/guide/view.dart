@@ -32,6 +32,9 @@ Widget buildView(GuideState state, Dispatch dispatch, ViewService viewService) {
               onPressed: () => GlobalStore.store
                   .dispatch(GlobalActionCreator.onChangeThemeColor()),
               child: Text('Change theme')),
+          OutlinedButton(
+              onPressed: () => dispatch(GuideActionCreator.toComp()),
+              child: Text('Component')),
         ],
       ),
     ),

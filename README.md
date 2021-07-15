@@ -1,16 +1,50 @@
-# redux_sample
+# Fish Redux Sample
 
-A new Flutter project.
 
-## Getting Started
+| <img src="count.gif" width="320"/>| <img src="navigate.gif" width="320"/>| <img src="list.gif" width="320"/>|
+|:---:|:---:|:---:|
+|Count|Navigate|List|
+| <img src="edit_list.gif" width="320"/>| <img src="global_theme.gif" width="320"/>| <img src="component.gif" width="320"/>|
+|Edit list|Global theme|Component|
+| <img src="broadcast.gif" width="320"/>| | |
+|Broadcast|||
 
-This project is a starting point for a Flutter application.
+# Communication Mechanism
 
-A few resources to get you started if this is your first Flutter project:
+## 页面内通信
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-   组件|适配器内通信
+-   组件|适配器间内通信
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image.png | left | 747x399](https://cdn.nlark.com/lark/0/2018/png/82574/1545365233153-4c8105b4-050c-49e6-be02-dbf28a861caa.png)
+
+Self-First-Broadcast。
+发出的 Action，自己优先处理，否则广播给其他组件和 Redux 处理。
+
+最终我们通过一个简单而直观的 dispatch 完成了组件内，组件间（父到子，子到父，兄弟间等）的通信。
+
+## 页面间通信
+
+-   页面间通信
+    -   Context.appBroadcast
+        -   每一个页面的 PageStore 都会收到消息，各自独立负责处理。
+
+![image.png | left | 691x519](https://cdn.nlark.com/lark/0/2018/png/82574/1545368705599-745c46a3-f5c6-41a7-a757-1bc6f9a389d4.png)
+
+# Refresh Mechanism
+
+## 数据刷新
+
+-   局部数据修改，自动层层触发上层数据的浅拷贝，对业务代码是透明的。
+-   层层的数据的拷贝
+    -   一方面是对 Redux 数据修改的严格的 follow。
+    -   另一方面也是对数据驱动展示的严格的 follow。
+        -   数据的任何一个局部的变动，必须要让能看到这个局部的所有视图感知到。如果不拷贝，对应的视图通过新旧两份数据的比较（同一个引用），会错以为自己没有发生变化。
+
+![image.png | left | 747x361](https://cdn.nlark.com/lark/0/2018/png/82574/1545386668521-0081cb5f-8017-47d1-ad7c-8802bb0be8a0.png)
+
+## 视图刷新
+
+-   扁平化通知到所有组件，组件通过 shouldUpdate 确定自己是否需要刷新
+
+![image.png | left | 747x336](https://cdn.nlark.com/lark/0/2018/png/82574/1545386773247-2eddfa99-e6b9-4be9-ac43-d1944ff44e9b.png)
